@@ -6,9 +6,13 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "dev": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FKholbutayev/PetAdoptionApp.git"
@@ -22,6 +26,7 @@
   "homepage": "https://github.com/FKholbutayev/PetAdoptionApp#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",

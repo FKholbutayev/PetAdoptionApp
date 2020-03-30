@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Pet from "./Pet";
-import SearchParams from './SearchParams'
+import SearchParams from "./SearchParams";
 
 const App = () => {
   return (
     <div>
       <h1>Adopt me</h1>
-      <SearchParams/>
+      <SearchParams />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);

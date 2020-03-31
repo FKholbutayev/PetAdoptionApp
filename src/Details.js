@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "@reach/router";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
@@ -21,29 +20,28 @@ const Details = (props) => {
           loading: false,
         });
       })
-      .catch((err) => setState({ error: err }));
-    return () => {};
-  }, [props.id]);
+      .catch((err) => {
+        console.log("error in catch");
+        setState({ error: err });
+      });
+  }, [+props.id]);
 
   const { animal, breed, location, description, media, name, loading } = state;
+  if (loading) {
+    return <h1>loading ...</h1>;
+  }
   return (
     <div className="details">
-      {loading ? (
-        <h1>loading ...</h1>
-      ) : (
-        <div>
-          <h1>{name}</h1>
-          <h2>{`${animal} — ${breed} — ${location}`}</h2>
-          <button>Adopt {name}</button>
-          <p>{description}</p>
-          <Carousel media={media} />
-        </div>
-      )}
+      <Carousel media={media} />
+      <h1>{name}</h1>
+      <h2>{`${animal} — ${breed} — ${location}`}</h2>
+      <button>Adopt {name}</button>
+      <p>{description}</p>
     </div>
   );
 };
 
-export default function DetailsErrorBounary(props) {
+export default function DetailsErrorBoundary(props) {
   return (
     <ErrorBoundary>
       <Details {...props} />

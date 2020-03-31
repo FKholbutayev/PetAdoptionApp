@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
+import ErrorBoundary from "./ErrorBoundary";
 
-const SearchParams = () => {
+const SearchParams = (props) => {
   const [location, setLocation] = useState("Seattle, WA");
   const [breeds, setBreeds] = useState([]);
   const [pets, setPets] = useState([]);
@@ -59,4 +60,10 @@ const SearchParams = () => {
   );
 };
 
-export default SearchParams;
+export default function SearchParamsError(props) {
+  return (
+    <ErrorBoundary>
+      <SearchParams {...props} />
+    </ErrorBoundary>
+  );
+}

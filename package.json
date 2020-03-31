@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/FKholbutayev/PetAdoptionApp#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.10.1",

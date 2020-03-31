@@ -6,13 +6,11 @@ class ErrorBoundary extends Component {
     super(props);
     this.state = { hasError: false, redirect: false };
   }
-
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-
   componentDidCatch(error, info) {
-    console.error("error", error, info);
+    console.error("ErrorBoundary caught an error", error, info);
   }
 
   componentDidUpdate() {
@@ -20,9 +18,9 @@ class ErrorBoundary extends Component {
       setTimeout(() => this.setState({ redirect: true }), 5000);
     }
   }
+
   render() {
     if (this.state.redirect) {
-      console.log("see the mistake");
       return <Redirect to="/" noThrow />;
     }
     if (this.state.hasError) {
@@ -33,6 +31,7 @@ class ErrorBoundary extends Component {
         </h1>
       );
     }
+
     return this.props.children;
   }
 }

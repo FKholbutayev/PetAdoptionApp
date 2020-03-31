@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
 import pet from "@frontendmasters/pet";
+import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Details = (props) => {
   const [state, setState] = useState({ loading: true });
@@ -34,10 +36,17 @@ const Details = (props) => {
           <h2>{`${animal} — ${breed} — ${location}`}</h2>
           <button>Adopt {name}</button>
           <p>{description}</p>
+          <Carousel media={media} />
         </div>
       )}
     </div>
   );
 };
 
-export default Details;
+export default function DetailsErrorBounary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}

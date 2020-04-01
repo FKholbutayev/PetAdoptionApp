@@ -14,8 +14,8 @@ const App = () => {
   return (
     <React.StrictMode>
       <ThemeContext.Provider value={theme}>
-        <div>
-          <h1>Adopt me</h1>
+        <div className="container border p-4 mx-auto">
+          <h1 className="text-4xl p-2">Adopt me</h1>
           <Suspense fallback={<h1>loading route …</h1>}>
             <Router>
               <SearchParams path="/" />

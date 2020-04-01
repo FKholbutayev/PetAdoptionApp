@@ -11,12 +11,14 @@ const Pet = (props) => {
 
   return (
     <Link to={`/details/${id}`} className="pet">
-      <div className="image-container">
-        <img src={hero} alt={name} />
-      </div>
-      <div className="info">
-        <h1>{name}</h1>
-        <h2>{`${animal} — ${breed} — ${location}`}</h2>
+      <div className="flex flex-row border">
+        <div className="p-2">
+          <img src={hero} className="w-32 h-32 object-cover" alt={name} />
+        </div>
+        <div className="p-2">
+          <h1>{name}</h1>
+          <h2>{`${animal} — ${breed} — ${location}`}</h2>
+        </div>
       </div>
     </Link>
   );

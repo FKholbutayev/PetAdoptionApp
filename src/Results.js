@@ -11,6 +11,7 @@ const Results = ({ pets }) => {
           return (
             <Pet
               animal={pet.type}
+              description={pet.description}
               key={pet.id}
               name={pet.name}
               breed={pet.breeds.primary}
